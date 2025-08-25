@@ -34,6 +34,22 @@
 </head>
 
 <body>
+    @php
+        $cmsPages = \App\Models\Cms::where('status', 1)->get();
+    @endphp
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    @foreach ($cmsPages as $page)
+                        <li class="nav-item"><a class="nav-link" href="{{ url($page->slug) }}">{{ $page->title }}</a></li>
+                    @endforeach
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/doctors') }}">Doctors</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div id="app">
         <main class="py-4">
             @yield('content')

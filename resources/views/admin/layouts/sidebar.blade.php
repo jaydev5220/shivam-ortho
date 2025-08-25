@@ -24,6 +24,12 @@
             'roles' => null,
         ],
         [
+            'route' => 'admin.doctor',
+            'icon' => 'fa-solid fa-user-doctor',
+            'label' => 'Doctors',
+            'roles' => null,
+        ],
+        [
             'route' => 'admin.cms',
             'icon' => 'fa-solid fa-cogs',
             'label' => 'Cms',
