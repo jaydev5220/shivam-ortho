@@ -31,6 +31,13 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/course/edit', [App\Http\Controllers\Admin\CourseController::class, 'edit'])->name('edit.course');
     Route::post('/course/delete', [App\Http\Controllers\Admin\CourseController::class, 'delete'])->name('delete.course');
 
+    // doctor
+    Route::get('/doctor', [App\Http\Controllers\Admin\DoctorController::class, 'index'])->name('admin.doctor');
+    Route::post('/doctorlist', [App\Http\Controllers\Admin\DoctorController::class, 'doctorlist'])->name('admin.doctorlist');
+    Route::post('/doctor/save', [App\Http\Controllers\Admin\DoctorController::class, 'save'])->name('save.doctor');
+    Route::get('/doctor/edit', [App\Http\Controllers\Admin\DoctorController::class, 'edit'])->name('edit.doctor');
+    Route::post('/doctor/delete', [App\Http\Controllers\Admin\DoctorController::class, 'delete'])->name('delete.doctor');
+
     //cms
     Route::get('/cms', [App\Http\Controllers\Admin\CmsController::class, 'index'])->name('admin.cms');
     Route::post('/cms/save', [App\Http\Controllers\Admin\CmsController::class, 'save'])->name('admin.cms.save');
@@ -46,3 +53,6 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/settings/remove_logo', [App\Http\Controllers\Admin\SettingsController::class, 'remove_logo'])->name('remove_logo.settings');
     Route::get('/settings/remove_favicon', [App\Http\Controllers\Admin\SettingsController::class, 'remove_favicon'])->name('remove_favicon.settings');
 });
+
+Route::get('/doctors', [App\Http\Controllers\DoctorController::class, 'index'])->name('frontend.doctors');
+Route::get('/{slug}', [App\Http\Controllers\CmsController::class, 'show'])->name('frontend.cms');
